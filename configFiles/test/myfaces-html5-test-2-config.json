@@ -1,0 +1,19 @@
+{
+    "project": "myfaces-html5",
+    "git_url": "https://github.com/apache/myfaces-html5.git",
+    "last_commit": "a41da370",
+    "experiment": 0,
+    "build_config": {
+        "build_system": "Maven",
+        "docker_image": "maven:3-jdk-8-slim",
+        "build_command": "mvn clean compile -X",
+        "build_file": "pom.xml"
+    },
+    "commits": [
+        {
+            "c_hash": "a41da370",
+            "date": "2011-10-21 17:01:33 +0000",
+            "comment": "MFHTML5-18 Use myfaces commons utils 1.0.2 to prevent duplicated code"
+        }
+    ]
+}

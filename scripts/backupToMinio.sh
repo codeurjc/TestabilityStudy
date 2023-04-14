@@ -1,0 +1,1 @@
+aws --endpoint-url https://minio.codeurjc.es s3 cp $1 s3://michel/2023-JSEP-Testability/Diciembre-2022/

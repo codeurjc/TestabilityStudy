@@ -1,0 +1,7 @@
+{
+    "project": "apache-druid",
+    "git_url": "https://github.com/apache/druid",
+    "comment": "This project has the same name as https://github.com/alibaba/druid. For this experiment, it will be renamed to 'apache-druid'",
+    "last_commit": "de8daf81",
+    "experiment": 2
+}

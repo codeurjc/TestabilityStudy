@@ -1,0 +1,13 @@
+{
+    "project": "assertj-core",
+    "git_url": "https://github.com/joel-costigliola/assertj-core.git",
+    "last_commit": "fc37b2d6",
+    "experiment": 0,
+    "commits": [
+        {
+            "c_hash": "fc37b2d6",
+            "date": "NO DATE - TEST",
+            "comment": "NO COMMENT - TEST"
+        }
+    ]
+}
