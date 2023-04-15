@@ -1,6 +1,6 @@
 # Reproducing open-projects software test execution experiment
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5425240.svg)](https://doi.org/10.5281/zenodo.5425240)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7831686.svg)](https://doi.org/10.5281/zenodo.7831686)
 
 > This repository constitutes the reproduction package of Chapter 4 of the PhD. Thesis titled `Hunting Bugs: A study of the change history of open-source software projects and its application to the detection of how these changes introduce bugs`, written by Michel Maes Bermejo.
 
@@ -22,33 +22,34 @@ This package contains:
 
 In addition, the rest of this file describe methodological details of the studies presented in the work, and provides an introduction to the data:
 
-<!-- - [Original Study](#original-study) -> Summary of the previous experiment leading to ours and its results
-- [Set Up](#set-up) -> Technical requirements to reproduce the experiments
-- [Replication Study](#replication-study)
-    - [Step 1: Project Mining](#step-1-project-mining-replication-study)
-    - [Step 2. Buildability experiment](#step-2-buildability-experiment-replication-study)
-    - [Step 3. Results analysis](#step-3-results-analysis-replication-study)
-- [Reproduction Study](#reproduction-study)
-    - [Step 1: Project Mining](#step-1-project-mining-reproduction-study)
-    - [Step 2. Buildability experiment](#step-2-buildability-experiment-reproduction-study)
-    - [Step 3. Results analysis](#step-3-results-analysis-reproduction-study) -->
+<!-- vscode-markdown-toc -->
+* [Set Up](#SetUp)
+* [Step 1. Repository mining](#Step1.Repositorymining)
+	* [1.1 Dataset selected](#Datasetselected)
+	* [1.2 Project mining and selection](#Projectminingandselection)
+		* [Many4J](#Many4J)
+	* [1.3 How to reproduce this step](#Howtoreproducethisstep)
+* [Step 2.Execution of the tests in the past](#Step2.Executionofthetestsinthepast)
+	* [2.1 Experiment process](#Experimentprocess)
+	* [2.3 How to reproduce this step](#Howtoreproducethisstep-1)
+* [Step 3. Analysis of the results](#Step3.Analysisoftheresults)
+	* [3.1 Preliminar Study](#PreliminarStudy)
+	* [3.2 Create resume](#Createresume)
+	* [3.3 Case Study](#CaseStudy)
+	* [3.4 Experimental results](#Experimentalresults)
+	* [3.5 Analyze results](#Analyzeresults)
 
-Some data needed to correctly reproduce the experiment is hosted in Zenodo (https://zenodo.org/record/5425240), due to the limitations of the GitHub file size (the size of the dataset >1TB decompressed). The dataset hosted in Zenodo contains the following files:
+Some data needed to correctly reproduce the experiment is hosted in Zenodo (https://zenodo.org/record/7831686#.ZDrBhdJBzRY), due to the limitations of the GitHub file size.
+The dataset hosted in Zenodo contains the following files:
 
 ```bash
-.
-├── Apache          
-    ├── projects          # Repositories of each Apache project (tar.gz)
-    ├── results           # Results per project (tar.gz)
-├── GitHub
-    ├── projects          # Repositories of each GitHub project (tar.gz)
-    ├── results           # Results per project (tar.gz)
+
 └── ManySStub4J (Many4J)          
-    ├── projects          # Repositories of each Many4J project (tar.gz)
-    └── results           # Results per project (tar.gz) - NOT AVAILABLE DUE SIZE (150GB) - FINAL VERSION WILL INCLUDE
+    ├── ManySStub4J-projects.tar.gz # Repositories of each Many4J project (tar.gz)
+    └── processed-results.tar.gz    # Procesed results per project (tar.gz)
 ```
 
-## Set Up
+##  Set Up
 
 *Pre-requisites to reproduce our work*
 
@@ -64,22 +65,22 @@ The experiment was carried out in 3 phases:
 - 2. Execution of the tests in the past
 - 3. Analysis of the results
 
-## Step 1. Repository mining
+##  <a name='Step1.Repositorymining'></a>Step 1. Repository mining
 
-### 1.1 Dataset selected
+###  <a name='Datasetselected'></a>1.1 Dataset selected
 
 To carry out the experiment, we have selected a well-known dataset:
 
 - **Many4J:** 100 projects selected from ManySStuBs4J dataset
 
-### 1.2 Project mining and selection
+###  <a name='Projectminingandselection'></a>1.2 Project mining and selection
 
-#### Many4J
+####  <a name='Many4J'></a>Many4J
 
 - Of the 100 original projects, 2 projects whose repository is no longer available, 1 project has not been included as it has not finished the execution of its experiment and 11 Android projects have been discarded. 
 - Therefore, 86 projects have been selected
 
-### 1.3 How to reproduce this step
+###  <a name='Howtoreproducethisstep'></a>1.3 How to reproduce this step
 
 The execution of this step is implemented in a single Jupyter Notebook per dataset.
 
@@ -107,12 +108,12 @@ OUTPUT:
 > **Notes:**
 > - Execute this experiment (download and analyze repositories) takes a considerable amount of time. 
 > - If order to be able to reproduce the experiment, the following files and folders are provided:
->   - Git repositories for all datasets (available in [Zenodo dataset](https://zenodo.org/record/5425240))
+>   - Git repositories for all datasets (available in [Zenodo dataset](https://zenodo.org/record/7831686#.ZDrBhdJBzRY))
 >   - Config files at `configFiles/<dataset>/`
 
-## Step 2.Execution of the tests in the past
+##  <a name='Step2.Executionofthetestsinthepast'></a>Step 2.Execution of the tests in the past
 
-### 2.1 Experiment process
+###  <a name='Experimentprocess'></a>2.1 Experiment process
 
 From the configuration files generated in the previous step (Step 1), the defined commits/snapshots will be built iteratively for each project:
 
@@ -126,7 +127,7 @@ From the configuration files generated in the previous step (Step 1), the define
     - The success code (0 or not 0) and the log are collected. All surefire-reports folders are also saved (contains results of the test in XML format)
 6. Repeat steps 2-6 for the next commit.
 
-##### 2.2 Experiment Results
+##### Experiment Results
 
 For each project, a results folder is generated in the `results/` folder which the following content:
 
@@ -145,7 +146,10 @@ For each project, a results folder is generated in the `results/` folder which t
 |----|----------|---------|-----------------|------------|----------------------|---------|----------------|---------------------------|---------|
 | 0  | a0defe57 | SUCCESS | 35              | SUCCESS    | 7                    | SUCCESS | 9              | 2014-09-23 15:11:35 +0800 | init    |
 
-### 2.3 How to reproduce this step
+> **Notes:**
+> The raw results (which include the logs of each phase of the experiment execution) have a size that exceeds the limits of platforms such as Zenodo (>1TB). If you need access to this raw data, please contact the following e-mail: michel.maes@urjc.es
+
+###  <a name='Howtoreproducethisstep-1'></a>2.3 How to reproduce this step
 
 To reproduce this step:
 
@@ -179,7 +183,7 @@ INPUT:
 OUTPUT: 
 - Folders in `results/` per project as defined in section 2.2.
 
-## Step 3. Analysis of the results
+##  <a name='Step3.Analysisoftheresults'></a>Step 3. Analysis of the results
 
 For this step you will need to have started a Docker container from the image built in step 1.3.
 
@@ -187,7 +191,7 @@ For this step you will need to have started a Docker container from the image bu
 $ docker run -d --rm --name jupyter-bugs -p 8888:8888 -v $PWD:/home/ -w /home/ jupyter-bugs
 ```
 
-### 3.1 Preliminar Study
+###  <a name='PreliminarStudy'></a>3.1 Preliminar Study
 
 We first conducted a preliminary study to explore the results obtained. 
 
@@ -197,7 +201,16 @@ We first conducted a preliminary study to explore the results obtained.
 The conclusion found is that out of 86 projects, only in 66 we were able to run at least 1 test.
 This notebook also includes an exploratory study of the causes of test execution errors is carried out.
 
-### 3.2 Create resume
+INPUT: 
+- Raw data generated by Step 2
+
+OUTPUT: 
+- Folders in `notebooks/ProjectAnalysis/TestAnalysis/results` with the processed data.
+
+> **Notes:**
+> The output of this step is available in the repoducction package-data (https://zenodo.org/record/7831686#.ZDrBhdJBzRY) as `processed-results.tar.gz`.
+
+###  <a name='Createresume'></a>3.2 Create resume
 
 The amount of data generated forces us to generate a handy summary of the experiment. 
 To do so, we will use a Jupyter Notebook that will collect the metrics set in the study.
@@ -206,13 +219,13 @@ To do so, we will use a Jupyter Notebook that will collect the metrics set in th
 - [Open notebooks in Gitlab/GitHub](notebooks/ProjectAnalysis/TestAnalysis/01-CreateResume.ipynb)
 
 INPUT: 
-- Raw data generated by Step 2
+- Processed data generated by Step 3.1
 
 OUTPUT: 
 - Summaries of the results for each project, grouped by dataset: 
     - results/Many4JResults.csv
 
-### 3.3 Case Study
+###  <a name='CaseStudy'></a>3.3 Case Study
 
 In the following notebooks you will find all the data and graphs generated for the Case Study, where the metrics that measure how testable a project is are proposed.
 
@@ -222,7 +235,7 @@ INPUT:
 OUTPUT:
 - Plots and tables for projects selected for the CaseStudy
 
-### 3.4 Experimental results
+###  <a name='Experimentalresults'></a>3.4 Experimental results
 
 From the summaries obtained in step 3.2 we show metrics at dataset level as well as different plots of the projects.
 
@@ -236,7 +249,7 @@ OUTPUT:
 - Graphics with project results
 - Tables summarising the results
 
-### 3.5 Analyze results
+### <a name='Analyzeresults'></a>3.5 Analyze results
 
 In this step, a more advanced analysis of the results is made, dividing them into quartiles according to different metrics and looking for the correlation of testability with these metrics. The results for the best projects for each of the testability flavours are also provided.
 
