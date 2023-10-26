@@ -63,7 +63,7 @@ class ProjectTestAnalysis():
 
             for _, row in self.summary.iterrows():
                 if row['n_test'] > 0:
-                    testable_rate = (row['n_success']-row['n_skipped']) / (row['n_test'] - row['n_skipped'])
+                    testable_rate = (row['n_success']) / (row['n_test'])
                     testable_rate_list.append(testable_rate)
                 else:
                     testable_rate_list.append(0)
