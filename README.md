@@ -1,8 +1,8 @@
 # Reproducing open-projects software test execution experiment
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7831686.svg)](https://doi.org/10.5281/zenodo.7831686)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5425239.svg)](https://doi.org/10.5281/zenodo.5425239)
 
-> This repository constitutes the reproduction package of Chapter 4 of the PhD. Thesis titled `Hunting Bugs: A study of the change history of open-source software projects and its application to the detection of how these changes introduce bugs`, written by Michel Maes Bermejo.
+> This repository constitutes the reproduction package of the paper "Testing the past: can we still run tests in past snapshots?" submitted to the Empirical Software Engineering journal (under review)
 
 This package contains:
 
@@ -39,7 +39,7 @@ In addition, the rest of this file describe methodological details of the studie
 	* [3.4 Experimental results](#Experimentalresults)
 	* [3.5 Analyze results](#Analyzeresults)
 
-Some data needed to correctly reproduce the experiment is hosted in Zenodo (https://zenodo.org/record/7831686#.ZDrBhdJBzRY), due to the limitations of the GitHub file size.
+Some data needed to correctly reproduce the experiment is hosted in Zenodo (https://zenodo.org/records/10069834), due to the limitations of the GitHub file size.
 The dataset hosted in Zenodo contains the following files:
 
 ```bash
@@ -108,7 +108,7 @@ OUTPUT:
 > **Notes:**
 > - Execute this experiment (download and analyze repositories) takes a considerable amount of time. 
 > - If order to be able to reproduce the experiment, the following files and folders are provided:
->   - Git repositories for all datasets (available in [Zenodo dataset](https://zenodo.org/record/7831686#.ZDrBhdJBzRY))
+>   - Git repositories for all datasets (available in [Zenodo dataset](https://zenodo.org/records/10069834))
 >   - Config files at `configFiles/<dataset>/`
 
 ##  <a name='Step2.Executionofthetestsinthepast'></a>Step 2.Execution of the tests in the past
@@ -208,7 +208,7 @@ OUTPUT:
 - Folders in `notebooks/ProjectAnalysis/TestAnalysis/results` with the processed data.
 
 > **Notes:**
-> The output of this step is available in the repoducction package-data (https://zenodo.org/record/7831686#.ZDrBhdJBzRY) as `processed-results.tar.gz`.
+> The output of this step is available in the repoducction package-data (https://zenodo.org/records/10069834) as `processed-results.tar.gz`.
 
 ###  <a name='Createresume'></a>3.2 Create resume
 
