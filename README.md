@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5425239.svg)](https://doi.org/10.5281/zenodo.5425239)
 
-> This repository constitutes the reproduction package of the paper "Testing the past: can we still run tests in past snapshots?" submitted to the Empirical Software Engineering journal (under review)
+> This repository constitutes the reproduction package of the paper "Testing the past: can we still run tests in past snapshots for Java projects?" submitted to the Empirical Software Engineering journal (under review)
 
 This package contains:
 
